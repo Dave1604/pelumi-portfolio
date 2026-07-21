@@ -237,7 +237,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote: "I just checked it out — thank you very much.",
-    name: "Nina",
+    name: "Client",
     detail: "Truekey Realty — real-estate site",
     href: "https://truekeyrealty.homes",
   },
