@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { serif, sans, mono } from "./fonts";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pelumi.dev"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Pelumi Adewara — Product engineer",
     template: "%s · Pelumi Adewara",
