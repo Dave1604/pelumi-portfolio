@@ -2,8 +2,9 @@
 
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "motion/react";
-import { identity, currently } from "@/lib/content";
+import { identity, currently, resume } from "@/lib/content";
 import { LocalTime } from "./local-time";
+import { CTAButton } from "./cta";
 import { EASE_OUT } from "@/lib/utils";
 
 const HeroScene = dynamic(
@@ -84,6 +85,17 @@ export function Hero() {
             <p className="text-pretty text-base leading-relaxed text-soft md:text-lg">
               {identity.intro}
             </p>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <CTAButton href="#contact">Work with me</CTAButton>
+              <CTAButton href="#work" variant="ghost">
+                See the work
+              </CTAButton>
+              {resume.available ? (
+                <CTAButton href={resume.href} variant="ghost" external>
+                  {resume.label}
+                </CTAButton>
+              ) : null}
+            </div>
           </div>
 
           <dl className="md:col-span-7 grid grid-cols-2 gap-x-6 gap-y-5 text-sm sm:grid-cols-4">

@@ -182,6 +182,79 @@ export const work: CaseStudy[] = [
 ];
 
 // ---------------------------------------------------------------------------
+// SERVICES — what someone can actually hire me for, in plain terms
+// ---------------------------------------------------------------------------
+
+export const services = [
+  {
+    number: "01",
+    title: "Business & marketing websites",
+    body: "Fast, responsive sites that move a first-time visitor from 'what is this' to 'get started' without a dead end. Built to load quick and read clearly — not just look good in a screenshot.",
+    audience: "Founders · agencies · local businesses",
+  },
+  {
+    number: "02",
+    title: "Web apps & dashboards",
+    body: "Auth, data, admin — the parts users never see but always feel. From a single internal tool to a full product surface.",
+    audience: "Startups · SaaS · internal teams",
+  },
+  {
+    number: "03",
+    title: "Mobile apps",
+    body: "iOS and Android from one React Native codebase — native feel, gesture-first, shipped to the stores.",
+    audience: "Product teams · founders",
+  },
+  {
+    number: "04",
+    title: "Backends & APIs",
+    body: "Node/Express on Postgres or Supabase — auth, 2FA, KYC, uploads, scheduled jobs. The trust infrastructure a real product can't skip.",
+    audience: "Products handling real data",
+  },
+  {
+    number: "05",
+    title: "Redesigns & UI implementation",
+    body: "A tired site or a Figma file, turned into something premium and pixel-honest. Design handed over? I build it exactly. No design yet? I do that too.",
+    audience: "Anyone whose site outgrew its ambition",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// TESTIMONIALS — real client words. Keep short and honest; never invent.
+// ---------------------------------------------------------------------------
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  detail: string;
+  href?: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote: "It’s perfect. Thank you so much.",
+    name: "Client",
+    detail: "Lagos Key Listings — real-estate site",
+  },
+  {
+    quote: "I just checked it out — thank you very much.",
+    name: "Nina",
+    detail: "Truekey Realty — real-estate site",
+    href: "https://truekeyrealty.homes",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// RÉSUMÉ — deferred. Drop a PDF at /public/pelumi-adewara-cv.pdf,
+// then set available: true and the download links appear automatically.
+// ---------------------------------------------------------------------------
+
+export const resume = {
+  available: false,
+  href: "/pelumi-adewara-cv.pdf",
+  label: "Résumé",
+} as const;
+
+// ---------------------------------------------------------------------------
 // HOW I BUILD — one combined narrative, not two parallel essays
 // ---------------------------------------------------------------------------
 
@@ -308,8 +381,8 @@ export const contact = {
 
 export const nav = [
   { label: "Work", href: "#work" },
+  { label: "Services", href: "#services" },
   { label: "How I build", href: "#build" },
-  { label: "Lab", href: "#lab" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];

@@ -1,6 +1,8 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
 import { SelectedWork } from "@/components/selected-work";
+import { Services } from "@/components/services";
+import { Testimonials } from "@/components/testimonials";
 import { HowIBuild } from "@/components/how-i-build";
 import { Stack } from "@/components/stack";
 import { ProjectLab } from "@/components/project-lab";
@@ -18,6 +20,8 @@ export default function Page() {
       <main className="relative">
         <Hero />
         <SelectedWork />
+        <Services />
+        <Testimonials />
         <HowIBuild />
         <Stack />
         <ProjectLab />

@@ -46,7 +46,7 @@ export function Contact() {
     >
       <div className="mx-auto w-full max-w-[1400px]">
         <SectionHeader
-          index="06"
+          index="08"
           eyebrow="Contact"
           title="Leave a signal."
           lede="No form. No fields. Type a note. Hit ⌘ + ⏎. It opens in your email so you stay in control — and so it lands somewhere I'll actually read it."

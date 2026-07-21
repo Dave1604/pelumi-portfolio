@@ -14,7 +14,7 @@ export function HowIBuild() {
     >
       <div className="mx-auto w-full max-w-[1400px]">
         <SectionHeader
-          index="02"
+          index="04"
           eyebrow="How I build"
           title="Engineering and design, held in one hand."
           lede="The split between 'designers' and 'developers' is mostly a hiring convenience. I treat product as one practice — these are the principles I keep returning to."
