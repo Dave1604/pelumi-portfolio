@@ -30,12 +30,12 @@ export const identity = {
 } as const;
 
 export const currently = {
-  status: "Open to select freelance & product roles", // REPLACE if outdated
+  status: "Open to select freelance & product roles",
   workingOn: "Frontend for QwamPay Technologies",
-  studying: "Computer Science",
+  studying: "Computer Science, grad. Nov 2026",
   // Set to your city. Time renders client-side from the IANA zone.
-  city: "Lagos", // REPLACE if not accurate
-  timezone: "Africa/Lagos", // REPLACE if not accurate
+  city: "Lagos",
+  timezone: "Africa/Lagos",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -81,7 +81,7 @@ export const work: CaseStudy[] = [
       "Built and shipped both frontends — a fast, responsive marketing site that walks a visitor from 'what is this' to 'get started' without a dead end, and a support portal where finding the answer takes fewer taps than raising a ticket.",
     outcome:
       "Both are live in production as QwamPay's public surface — the first thing every prospective user, partner, and investor sees.",
-    stack: ["React", "TypeScript", "Tailwind CSS"], // REPLACE if the Qwampay stack differs
+    stack: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
     links: [{ label: "Visit qwampay.com", href: "https://qwampay.com" }],
     image: {
       src: "/work/qwampay.png",
@@ -152,7 +152,7 @@ export const work: CaseStudy[] = [
       "A web platform with in-lesson quizzes and instant feedback, per-learner progress tracking, and lesson-duration metadata that rolls up into real course-length estimates — '12m' badges per lesson, '3h 5m' totals per course — with instructor and admin roles behind the content.",
     outcome:
       "Submitted as my final-year dissertation — the rare project where the requirements document is a bibliography.",
-    stack: ["React", "Node.js", "Express", "MongoDB"], // REPLACE if the dissertation stack differs
+    stack: ["React", "Node.js", "Express", "MongoDB"],
     links: [{ label: "View on GitHub", href: "https://github.com/Dave1604/study-buddy-platform" }],
   },
   {
@@ -231,15 +231,15 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "It’s perfect. Thank you so much.",
-    name: "Client",
-    detail: "Lagos Key Listings — real-estate site",
-  },
-  {
     quote: "I just checked it out — thank you very much.",
-    name: "Client",
+    name: "Nina",
     detail: "Truekey Realty — real-estate site",
     href: "https://truekeyrealty.homes",
+  },
+  {
+    quote: "It’s perfect. Thank you so much.",
+    name: "Client",
+    detail: "Truekey Realty — real-estate site",
   },
 ];
 
@@ -249,7 +249,7 @@ export const testimonials: Testimonial[] = [
 // ---------------------------------------------------------------------------
 
 export const resume = {
-  available: false,
+  available: true,
   href: "/pelumi-adewara-cv.pdf",
   label: "Résumé",
 } as const;

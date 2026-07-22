@@ -58,13 +58,13 @@ Every shared link now previews premium (was previously blank + hardcoded to a do
 
 | Priority | Item | Blocked on |
 |---|---|---|
-| High | Deploy: merge `portfolio-upgrade` → `main` | Pelumi's go-ahead |
-| High | **CV/résumé** — drop PDF + flip flag (see §7) | **The parallel CV session** |
-| Med | Confirm testimonial permission (publishing "Nina" by name) | Pelumi |
-| Med | Add **Truekey Realty** + **Lagos Key Listings** as full case studies | Screenshots + blurbs |
+| ✅ Done | Deploy Phase 0+1 to production (pelumi-adewara.vercel.app) | — |
+| ✅ Done | **CV/résumé** — PDF in `public/`, `resume.available: true` | — |
+| ✅ Done | Testimonial permission — Nina confirmed, published by name | — |
+| ✅ Done | Clear `// REPLACE` placeholders (city, grad date, QwamPay/Study Buddy stacks) | — |
+| Med | Add **Truekey Realty** as a full case study | Screenshots + blurb |
 | Med | Screenshots for **Ronsho** + **Study Buddy** (currently text-only) | Pelumi |
 | Med (Phase 2) | Individual `/work/[slug]` routes — shareable single-project links + per-project OG | — |
-| Low | Clear remaining `// REPLACE` in `content.ts` (QwamPay/Study Buddy stacks, city, status) | Real values |
 | Ongoing | 30-day content system (see `docs/STRATEGY.md`) | — |
 
 ---
@@ -79,10 +79,9 @@ Every shared link now previews premium (was previously blank + hardcoded to a do
 4. **Study Buddy** — *Education* · 2026 · Full-stack, Research. E-learning platform; final-year dissertation at **Arden University** — every feature grounded in e-learning literature (in-lesson quizzes, progress tracking, lesson-duration metadata). Stack: React, Node.js, Express, MongoDB.
 5. **Who's Cuh?** — *Food delivery* · 2026 · Frontend, Brand. Landing site for a local food-delivery brand (Ijebu-Ode & Ijagun). **Live in production.** Stack: React, TypeScript, Vite, Vercel.
 
-**Not yet on the portfolio (real, shipped — surfaced from client chats, candidates for case studies):**
+**Not yet a full case study (real, shipped — currently a testimonial, candidate for a case study):**
 
-6. **Truekey Realty** — *Real estate* · real-estate listings site for homes across Ikoyi–Sangotedo, Lagos. **Live** (truekeyrealty.homes). Client: "Nina." Testimonial: *"I just checked it out — thank you very much."*
-7. **Lagos Key Listings** — *Real estate* · real-estate site (lagos-key-listings.lovable.app). Testimonial: *"It's perfect. Thank you so much."*
+6. **Truekey Realty** — *Real estate* · real-estate listings site for homes across Ikoyi–Sangotedo, Lagos. **Live** (truekeyrealty.homes). Client: Nina (permission to publish her name confirmed). Testimonials: *"I just checked it out — thank you very much."* and *"It's perfect. Thank you so much."* (This is a single project — an earlier Lovable build was superseded by the truekeyrealty.homes deployment; do not reference the old prototype URL.)
 
 ---
 
@@ -98,7 +97,8 @@ Every shared link now previews premium (was previously blank + hardcoded to a do
 
 **Services (what he's hireable for):** business/marketing websites · web apps & dashboards · mobile apps · backends & APIs · redesigns & UI implementation.
 
-**Education:** Computer Science; final-year dissertation at Arden University (Study Buddy).
+**Education:** BSc (Hons) Computer Science, Arden University — **expected graduation Nov 2026**; final-year dissertation (Study Buddy).
+**Location:** Lagos, Nigeria.
 **Current role:** builds frontend for **QwamPay Technologies**.
 **Experience framing:** 5+ years of practice across fintech, automotive, marketplaces, real estate, and education.
 
