@@ -1,11 +1,11 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useState } from "react";
+import { useReducedMotion } from "motion/react";
 import { identity, currently, resume } from "@/lib/content";
 import { LocalTime } from "./local-time";
 import { CTAButton } from "./cta";
-import { EASE_OUT } from "@/lib/utils";
 
 const HeroScene = dynamic(
   () => import("./three/hero-scene").then((m) => m.HeroScene),
@@ -15,6 +15,25 @@ const HeroScene = dynamic(
 export function Hero() {
   const reduced = useReducedMotion();
 
+  // Defer the decorative 3D layer until the browser is idle, so the hero type
+  // paints (LCP) before Three.js starts competing for the main thread.
+  const [sceneReady, setSceneReady] = useState(false);
+  useEffect(() => {
+    if (reduced) return;
+    const ric =
+      typeof window !== "undefined" && "requestIdleCallback" in window
+        ? window.requestIdleCallback
+        : (cb: () => void) => window.setTimeout(cb, 300);
+    const id = ric(() => setSceneReady(true));
+    return () => {
+      if (typeof window !== "undefined" && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(id as number);
+      } else {
+        clearTimeout(id as number);
+      }
+    };
+  }, [reduced]);
+
   return (
     <section
       id="top"
@@ -22,7 +41,7 @@ export function Hero() {
     >
       {/* Ambient 3D layer — sits behind the type, in front of bg */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        {!reduced && <HeroScene />}
+        {!reduced && sceneReady && <HeroScene />}
         {/* gradient veils so type stays legible at any size */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#0a0a0b_70%)]" />
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-bg to-transparent" />
@@ -31,12 +50,7 @@ export function Hero() {
 
       <div className="mx-auto flex w-full max-w-[1400px] flex-1 flex-col px-6 pt-28 md:px-10 md:pt-32">
         {/* Eyebrow row */}
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: EASE_OUT }}
-          className="flex items-center justify-between"
-        >
+        <div className="hero-down flex items-center justify-between">
           <span className="eyebrow">
             Portfolio · 2026 / <span className="text-soft">Vol. V</span>
           </span>
@@ -44,42 +58,34 @@ export function Hero() {
             <span className="size-1 rounded-full bg-cream" />
             Index 00 — Hero
           </span>
-        </motion.div>
+        </div>
 
         {/* Kinetic thesis */}
         <div className="flex flex-1 items-center py-16">
           <h1 className="max-w-[18ch] font-serif text-[14vw] leading-[0.95] tracking-[-0.035em] sm:text-[12vw] md:text-[8.5vw] lg:text-[7.2rem] xl:text-[8rem]">
             {identity.thesis.map((token, i) => (
-              <motion.span
+              <span
                 key={i}
-                initial={{ opacity: 0, y: reduced ? 0 : 24, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{
-                  duration: 0.9,
-                  delay: 0.15 + i * 0.06,
-                  ease: EASE_OUT,
-                }}
-                className={
+                className={`hero-rise inline-block ${
                   token.weight === "italic"
                     ? "italic text-cream"
                     : token.weight === "mute"
                     ? "text-mute"
                     : "text-ink"
-                }
+                }`}
+                style={{ animationDelay: `${(0.15 + i * 0.06).toFixed(3)}s` }}
               >
                 {token.word}
-                {i < identity.thesis.length - 1 ? " " : ""}
-              </motion.span>
+                {i < identity.thesis.length - 1 ? " " : ""}
+              </span>
             ))}
           </h1>
         </div>
 
         {/* Foot */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.1 }}
-          className="grid grid-cols-1 gap-6 border-t border-rule pb-10 pt-6 md:grid-cols-12 md:gap-10 md:pb-14"
+        <div
+          className="hero-fade grid grid-cols-1 gap-6 border-t border-rule pb-10 pt-6 md:grid-cols-12 md:gap-10 md:pb-14"
+          style={{ animationDelay: "0.8s" }}
         >
           <div className="md:col-span-5">
             <p className="text-pretty text-base leading-relaxed text-soft md:text-lg">
@@ -109,21 +115,19 @@ export function Hero() {
               }
             />
           </dl>
-        </motion.div>
+        </div>
       </div>
 
       {/* scroll hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2"
+      <div
+        className="hero-fade pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2"
+        style={{ animationDelay: "1.2s" }}
       >
         <span className="eyebrow flex items-center gap-2">
           <span className="h-px w-6 bg-mute" />
           Scroll
         </span>
-      </motion.div>
+      </div>
     </section>
   );
 }

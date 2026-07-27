@@ -133,6 +133,10 @@ export const work: CaseStudy[] = [
     outcome:
       "A working end-to-end marketplace — discovery, profiles, fabrics, search, and bookings — designed and built solo across the whole stack.",
     stack: ["React", "TypeScript", "Vite", "Tailwind", "Node.js", "Supabase"],
+    image: {
+      src: "/work/ronsho.jpg",
+      alt: "Ronsho marketplace hero — 'Shop Ronsho for Weddings, Events & Anniversaries' — over a search band with style, delivery-date, and colour filters",
+    },
     links: [{ label: "View on GitHub", href: "https://github.com/Dave1604/ronsho" }],
   },
   {
@@ -143,16 +147,20 @@ export const work: CaseStudy[] = [
     year: "2026",
     role: ["Full-stack", "Research"],
     oneLiner:
-      "A dissertation-grade e-learning platform where the engagement features come from the literature, not a feature wishlist.",
+      "A dissertation-grade e-learning platform where every engagement feature is drawn from the research literature, not a feature wishlist.",
     problem:
       "Most e-learning tools bolt quizzes on as an afterthought and call it engagement. My final-year dissertation at Arden University asked a stricter question: what does a platform look like when every interactive feature is chosen from what e-learning research says actually works?",
     process:
-      "Started in the literature: which mechanisms measurably improve engagement — immediate quiz feedback, visible progress, honest time expectations. Then built only those, so every feature in the platform traces back to a finding rather than a hunch.",
+      "Started in the literature — the testing effect (Roediger & Karpicke), metacognitive self-monitoring, and the finding that competitive leaderboards can demotivate learners. Then I built only what the evidence supported: instant explanatory feedback over blind scoring, personal progress over rankings, honest time expectations. Every feature traces back to a source rather than a hunch.",
     solution:
-      "A web platform with in-lesson quizzes and instant feedback, per-learner progress tracking, and lesson-duration metadata that rolls up into real course-length estimates — '12m' badges per lesson, '3h 5m' totals per course — with instructor and admin roles behind the content.",
+      "A full-stack platform with student and instructor roles: in-lesson quizzes across three question types with shuffled answers and instant feedback that explains why an answer is wrong, Recharts progress dashboards tracking score trends and learning hours, and lesson-duration metadata that rolls up into real course-length estimates — '12m' per lesson, '3h 5m' per course. Behind it, a hardened Express API — JWT auth, bcrypt, rate-limiting — over Supabase Postgres, targeting WCAG 2.1 AA.",
     outcome:
       "Submitted as my final-year dissertation — the rare project where the requirements document is a bibliography.",
-    stack: ["React", "Node.js", "Express", "MongoDB"],
+    stack: ["React", "Recharts", "Node.js / Express", "JWT auth", "Supabase (Postgres)"],
+    image: {
+      src: "/work/study-buddy.png",
+      alt: "Study Buddy landing page — 'Learn without limits. Track every step.' — with floating quiz and progress-dashboard mockups",
+    },
     links: [{ label: "View on GitHub", href: "https://github.com/Dave1604/study-buddy-platform" }],
   },
   {
