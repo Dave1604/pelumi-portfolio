@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { contact } from "@/lib/content";
+import { contact, availability, booking } from "@/lib/content";
 import { SectionHeader } from "./section-header";
 import { EASE_OUT } from "@/lib/utils";
 
@@ -46,7 +46,7 @@ export function Contact() {
     >
       <div className="mx-auto w-full max-w-[1400px]">
         <SectionHeader
-          index="08"
+          index="09"
           eyebrow="Contact"
           title="Leave a signal."
           lede="No form. No fields. Type a note. Hit ⌘ + ⏎. It opens in your email so you stay in control — and so it lands somewhere I'll actually read it."
@@ -116,6 +116,29 @@ export function Contact() {
               </a>{" "}
               directly.
             </p>
+
+            {booking.available ? (
+              <p className="mt-4">
+                <a
+                  href={booking.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="anchor-line font-mono text-xs uppercase tracking-[0.18em] text-cream"
+                >
+                  {booking.label} →
+                </a>
+              </p>
+            ) : null}
+
+            {/* Repeated from the hero on purpose: plenty of recruiters land
+                here from a link and never see the top of the page. */}
+            <div className="mt-8 border-t border-rule pt-5">
+              <span className="eyebrow text-cream">Working with me</span>
+              <p className="mt-2 max-w-[62ch] text-pretty text-sm leading-relaxed text-soft">
+                {availability.setup}{" "}
+                <span className="text-mute">{availability.hours}</span>
+              </p>
+            </div>
           </div>
 
           {/* Sidebar — channels */}

@@ -121,9 +121,16 @@
 /* Hero entrance — CSS-driven so it plays on first paint, independent of JS
    hydration (no blank-until-JS flash) and governed by the reduced-motion rule
    above (which snaps animation-duration to ~0, revealing content instantly). */
+/* The hero headline is the page's LCP element, so it must NOT animate from
+   opacity: 0. Chrome only evaluates an element's *first* paint for LCP
+   candidacy and skips anything painted fully transparent — it never
+   reconsiders it. Fading the headline in meant the page had no LCP candidate
+   at all: Lighthouse returned NO_LCP and refused to produce a performance
+   score. Reveal with transform + blur instead, so real pixels land on frame
+   one and the entrance still reads as a settle rather than a pop. */
 @keyframes hero-rise {
-  from { opacity: 0; transform: translateY(24px); filter: blur(8px); }
-  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+  from { transform: translateY(24px); filter: blur(6px); }
+  to   { transform: translateY(0);    filter: blur(0); }
 }
 @keyframes hero-down {
   from { opacity: 0; transform: translateY(-8px); }

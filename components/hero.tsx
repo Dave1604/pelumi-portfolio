@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useReducedMotion } from "motion/react";
-import { identity, currently, resume } from "@/lib/content";
+import { identity, currently, resume, availability } from "@/lib/content";
 import { LocalTime } from "./local-time";
 import { CTAButton } from "./cta";
 
@@ -84,7 +84,7 @@ export function Hero() {
 
         {/* Foot */}
         <div
-          className="hero-fade grid grid-cols-1 gap-6 border-t border-rule pb-10 pt-6 md:grid-cols-12 md:gap-10 md:pb-14"
+          className="hero-fade grid grid-cols-1 gap-6 border-t border-rule pt-6 md:grid-cols-12 md:gap-10"
           style={{ animationDelay: "0.8s" }}
         >
           <div className="md:col-span-5">
@@ -107,7 +107,7 @@ export function Hero() {
           <dl className="md:col-span-7 grid grid-cols-2 gap-x-6 gap-y-5 text-sm sm:grid-cols-4">
             <Meta label="Currently" value={currently.workingOn} />
             <Meta label="Status" value={currently.status} />
-            <Meta label="Studying" value={currently.studying} />
+            <Meta label="Education" value={currently.studying} />
             <Meta
               label="Local"
               value={
@@ -115,6 +115,20 @@ export function Hero() {
               }
             />
           </dl>
+        </div>
+
+        {/* The two questions a remote recruiter asks before reading anything
+            else. Answering them here costs one line and removes the objection
+            that closes the tab. */}
+        <div
+          className="hero-fade flex flex-col gap-2 border-t border-rule pb-10 pt-5 md:flex-row md:items-baseline md:gap-8 md:pb-14"
+          style={{ animationDelay: "0.95s" }}
+        >
+          <span className="eyebrow shrink-0 text-cream">Working with me</span>
+          <p className="text-pretty text-sm leading-relaxed text-soft">
+            {availability.setup}{" "}
+            <span className="text-mute">{availability.hours}</span>
+          </p>
         </div>
       </div>
 

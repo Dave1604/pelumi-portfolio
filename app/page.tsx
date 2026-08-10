@@ -1,6 +1,7 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
 import { SelectedWork } from "@/components/selected-work";
+import { Experience } from "@/components/experience";
 import { Services } from "@/components/services";
 import { Testimonials } from "@/components/testimonials";
 import { HowIBuild } from "@/components/how-i-build";
@@ -20,6 +21,7 @@ export default function Page() {
       <main className="relative">
         <Hero />
         <SelectedWork />
+        <Experience />
         <Services />
         <Testimonials />
         <HowIBuild />

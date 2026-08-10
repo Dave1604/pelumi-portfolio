@@ -5,7 +5,7 @@
 > **CV**, read §1, §5, §6, §7 — they define the positioning, projects, and
 > stack the résumé must match word-for-word so portfolio and CV agree.
 >
-> **Last updated:** 2026-07-21
+> **Last updated:** 2026-08-10
 
 ---
 
@@ -52,6 +52,51 @@ Every shared link now previews premium (was previously blank + hardcoded to a do
 
 **Git:** both phases committed on branch **`portfolio-upgrade`** (NOT yet merged to `main`, so not yet deployed). Commits: `Phase 0…` and `Phase 1…`.
 
+### ✅ Phase 1.5 — Recruiter layer (2026-08-10)
+Came out of a hiring-manager review of the live site. The finding that drove it:
+**the CV was materially stronger than the site.** The site read as "freelancer with
+five side projects"; the CV shows two current engineering roles, five employers,
+and ~10 delivered client projects. Fixes:
+
+- **`availability` in `content.ts`** — states the contractor/no-sponsorship setup and
+  the GMT+1 overlap with UK/EU/US-East. Rendered in the hero foot **and** repeated in
+  Contact (recruiters often deep-link straight there). This answers the two questions
+  that otherwise close the tab.
+- **New `components/experience.tsx` (§02)** — on-page employment history sourced from
+  the CV: QwamPay, Motoka, Freelance, AutoCredit/MoniCredit, Tech Talent Academy,
+  CodeSquad, plus an education row and a résumé-download CTA. **Sections renumbered:**
+  00 Hero · 01 Work · **02 Experience** · 03 Services · 04 Testimonials · 05 How I build ·
+  06 Stack · 07 Lab · 08 About · 09 Contact. "Experience" added to `nav`.
+- **Real specifics in case-study outcomes** — QwamPay corrected to *three* production
+  frontends (marketing + support + admin) plus backend/Meta WhatsApp template work;
+  Motoka's payments, guest renewals and nine-stage engine surfaced; Study Buddy
+  reframed to lead with the software, not the dissertation; Who's Cuh credits five
+  founding restaurant partners.
+- **Testimonials cut to one** — two thank-you notes from the *same* client read as
+  padding. Component now renders a single quote full-width.
+- **`booking` in `content.ts`** — dormant flag + href. Flip `available` and paste a
+  Cal.com URL and the "book a call" CTAs light up in Services and Contact. Until then
+  nothing on the page promises a scheduler that doesn't exist.
+
+### 🐛 Fixed — the site had no Lighthouse performance score at all
+Running Lighthouse against the live site returned **`NO_LCP`** on both desktop and
+mobile presets: no Largest Contentful Paint, therefore **no performance score** —
+what a client or recruiter would see if they ran PageSpeed Insights on it.
+
+**Cause:** `@keyframes hero-rise` animated the hero `<h1>` from `opacity: 0`. Chrome
+evaluates only an element's **first paint** for LCP candidacy and permanently skips
+anything painted fully transparent, so the page's natural LCP element disqualified
+itself and nothing else above the fold qualified either.
+
+**Fix:** `hero-rise` now animates `transform` + `filter: blur()` only, no opacity — the
+headline paints real pixels on frame one. At-rest appearance is unchanged; the entrance
+reads as a settle rather than a fade.
+
+**Verified** on a local production build: Performance **100**, Accessibility **100**,
+Best Practices **100**, SEO **100**; FCP 0.3 s, LCP 0.6 s, TBT 0 ms, CLS 0.
+⚠️ Those are localhost numbers — **re-run against the live URL after deploying** before
+quoting any figure on the site itself. Do not publish a localhost score.
+
 ---
 
 ## 4. What's left
@@ -62,8 +107,19 @@ Every shared link now previews premium (was previously blank + hardcoded to a do
 | ✅ Done | **CV/résumé** — PDF in `public/`, `resume.available: true` | — |
 | ✅ Done | Testimonial permission — Nina confirmed, published by name | — |
 | ✅ Done | Clear `// REPLACE` placeholders (city, grad date, QwamPay/Study Buddy stacks) | — |
+| ✅ Done | Screenshots for **Ronsho** + **Study Buddy** | — |
+| ✅ Done | Recruiter layer — availability, Experience section, metrics, testimonial cut | — |
+| ✅ Done | **Cal.com booking** — live at `cal.com/pelumi-adewara-g8krb3/30min`, wired into Services + Contact via `booking` in `content.ts`. Copy changed 20-min → **30-min** to match the real event | — |
+| **High** | **Rename the Cal.com event** — it's titled *"15 min meeting"* but is 30 minutes long. Recruiters click "Book a 30-min call" and land on a page contradicting it | Pelumi |
+| **High** | **Second testimonial from a different client** — one quote is thin | Pelumi |
+| High | Real photo (headshot) for About + OG card | Pelumi |
 | Med | Add **Truekey Realty** as a full case study | Screenshots + blurb |
-| Med | Screenshots for **Ronsho** + **Study Buddy** (currently text-only) | Pelumi |
+| **High** | **Update the CV PDF** — there is no source file in this repo, only the built `public/pelumi-adewara-cv.pdf`, so it can't be edited here. See §7a for the exact list of corrections | Pelumi / CV session |
+| **High** | Re-run Lighthouse on the **live** URL after deploying the LCP fix, then quote the real number in the "Performance is a design decision" principle | — |
+| Med | Real form endpoint (Resend/Formspree) — `mailto:` silently dead-ends on machines with no mail client | — |
+| Med | Ronsho + Study Buddy live demos — **blocked**: not deploy-ready, Study Buddy's Supabase project is gone | Pelumi |
+| Med | Project Lab (§07) promises six essays that don't exist — write one or cut the section | Pelumi |
+| Low | Mobile case study — hero says "to the App Store" and Services sells mobile apps, but no mobile project is shown | Pelumi |
 | Med (Phase 2) | Individual `/work/[slug]` routes — shareable single-project links + per-project OG | — |
 | Ongoing | 30-day content system (see `docs/STRATEGY.md`) | — |
 
@@ -98,9 +154,25 @@ Every shared link now previews premium (was previously blank + hardcoded to a do
 **Services (what he's hireable for):** business/marketing websites · web apps & dashboards · mobile apps · backends & APIs · redesigns & UI implementation.
 
 **Education:** BSc (Hons) Computer Science, Arden University — **expected graduation Nov 2026**; final-year dissertation (Study Buddy).
-**Location:** Lagos, Nigeria.
-**Current role:** builds frontend for **QwamPay Technologies**.
+**Location:** Lagos, Nigeria (GMT+1).
+**Current roles:** **Full Stack Software Engineer** at **QwamPay Technologies** *and* **Motoka** (both 2025–present). Not "frontend" — he ships backend at both.
 **Experience framing:** 5+ years of practice across fintech, automotive, marketplaces, real estate, and education.
+
+**Availability (canonical — keep site, CV, and LinkedIn identical):**
+Open to **full-time remote roles and contract work**. Hired worldwide as an
+**independent contractor — no visa or sponsorship required**. Full working-day overlap
+with UK/EU; hours extend to cover the US East Coast morning.
+
+**Employment history (canonical, mirrors `experience` in `content.ts` and the CV):**
+
+| Period | Title | Org |
+|---|---|---|
+| 2025 – Present | Full Stack Software Engineer | QwamPay Technologies |
+| 2025 – Present | Full Stack Software Engineer | Motoka |
+| 2021 – Present | Freelance Product Engineer | ~10 completed client projects |
+| 2024 – 2025 | Frontend Developer | AutoCredit Technologies (MoniCredit) — consumer finance app: wallet-as-a-service + value-added services. **Not a lending platform**; the CV's older wording was wrong. |
+| 2021 – 2023 | Frontend Developer & Tutor | Tech Talent Academy |
+| 2020 – 2021 | Frontend Developer Intern | CodeSquad LLC |
 
 ---
 
@@ -114,6 +186,34 @@ The portfolio already has a **dormant résumé download** wired in. To make the 
    Then "Résumé" download links appear automatically in the hero (and can be added to nav/contact).
 
 **Keep the CV consistent with this doc:** same title ("Product Engineer"), same tagline, the §5 project descriptions, the §6 stack. The CV and portfolio should read like one person wrote both — because they did.
+
+### 7a. CV corrections outstanding (as of 2026-08-10)
+
+> **Copy-paste drafts for every correction below live in `docs/CV-UPDATES-2026-08.md`.**
+
+The shipped `public/pelumi-adewara-cv.pdf` is now **out of sync with the site**. There is
+no `.docx`/`.md`/Figma source in this repo — only the built PDF — so whoever regenerates
+it needs the original. Corrections required:
+
+1. **Education** — currently reads *"BSc (Hons) Computer Science · Expected Nov 2026"*.
+   Should be **BSc (Hons) Computing, Arden University — awarded June 2026, Second Class
+   Honours (Upper Division)**. Note the subject name changed too (Computing, not
+   Computer Science) — confirm which is printed on the certificate and make all three
+   surfaces agree (CV, site, LinkedIn).
+2. **Study Buddy stack** — CV says MongoDB. The project **migrated MongoDB → Supabase
+   Postgres**. State the migration; it's a stronger detail than either database alone.
+3. **Motoka** — "several thousand car owners" → **~5,000**.
+4. **QwamPay** — the CV implies a live product. It is **in closed beta, ~300 testers**;
+   the marketing and support sites are what's publicly live. Say so.
+5. **Who's Cuh?** — scope is bigger than "brand site": marketing site **plus** a restaurant
+   admin panel (menu upload/management) **plus** the rider-facing side, with the customer
+   app in active development.
+6. **Add the availability line** from §6 verbatim — contractor, no sponsorship, GMT+1
+   overlap. It belongs at the top of the CV as much as on the site.
+7. **MoniCredit is mis-described** — the CV calls it a *lending platform*. It's a
+   consumer finance app built on **wallet-as-a-service and value-added services**
+   (wallets, transfers, bill payments, airtime/data). Fix this one first; it's the only
+   outright factual error in the document.
 
 ---
 

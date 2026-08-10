@@ -1,6 +1,6 @@
 "use client";
 
-import { services } from "@/lib/content";
+import { services, booking } from "@/lib/content";
 import { SectionHeader } from "./section-header";
 import { Reveal } from "./reveal";
 import { CTAButton } from "./cta";
@@ -13,7 +13,7 @@ export function Services() {
     >
       <div className="mx-auto w-full max-w-[1400px]">
         <SectionHeader
-          index="02"
+          index="03"
           eyebrow="Services"
           title="What you can hire me to build."
           lede="Fixed-scope projects or ongoing work. Whether you arrive with a Figma file, a rough idea, or a broken site, I take it from where it is to shipped — design and code, both sides."
@@ -59,13 +59,26 @@ export function Services() {
         <Reveal y={20} className="mt-14">
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <p className="max-w-[42ch] font-serif text-2xl leading-snug tracking-[-0.015em] text-ink md:text-3xl">
-              Building something? Start with a free 20-minute call.
+              Building something? Start with a free 30-minute call.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <CTAButton href="#contact">Work with me</CTAButton>
-              <CTAButton href="#work" variant="ghost">
-                See the work
-              </CTAButton>
+              {booking.available ? (
+                <>
+                  <CTAButton href={booking.href} external>
+                    {booking.label}
+                  </CTAButton>
+                  <CTAButton href="#contact" variant="ghost">
+                    Send a message
+                  </CTAButton>
+                </>
+              ) : (
+                <>
+                  <CTAButton href="#contact">Work with me</CTAButton>
+                  <CTAButton href="#work" variant="ghost">
+                    See the work
+                  </CTAButton>
+                </>
+              )}
             </div>
           </div>
         </Reveal>

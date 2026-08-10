@@ -15,7 +15,7 @@ export function ProjectLab() {
     >
       <div className="mx-auto w-full max-w-[1400px]">
         <SectionHeader
-          index="06"
+          index="07"
           eyebrow="Project lab"
           title="A sketchbook. Studies, not shipments."
           lede="Where I practise the parts of the craft I can't bill for — typography, motion, components, the small disciplines that keep taste from going stale."

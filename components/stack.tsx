@@ -12,7 +12,7 @@ export function Stack() {
     >
       <div className="mx-auto w-full max-w-[1400px]">
         <SectionHeader
-          index="05"
+          index="06"
           eyebrow="Stack"
           title="A working set, not a list of logos."
           lede="The tools I reach for first. Each one earned its place by surviving real projects — and they're held lightly enough that the next better tool will replace them."

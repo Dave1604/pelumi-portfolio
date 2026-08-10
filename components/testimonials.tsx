@@ -7,6 +7,8 @@ import { Reveal } from "./reveal";
 export function Testimonials() {
   if (testimonials.length === 0) return null;
 
+  const single = testimonials.length === 1;
+
   return (
     <section
       id="testimonials"
@@ -14,13 +16,21 @@ export function Testimonials() {
     >
       <div className="mx-auto w-full max-w-[1400px]">
         <SectionHeader
-          index="03"
+          index="04"
           eyebrow="In their words"
           title="Shipped, and the client came back happy."
-          lede="Short notes from people I've built for. The work is live; these are the receipts."
+          lede={
+            single
+              ? "One note, unedited, from a client whose site is live. I'd rather show one real message than pad this out."
+              : "Short notes from people I've built for. The work is live; these are the receipts."
+          }
         />
 
-        <div className="mt-20 grid grid-cols-1 gap-px overflow-hidden border border-rule md:grid-cols-2">
+        <div
+          className={`mt-20 grid grid-cols-1 gap-px overflow-hidden border border-rule ${
+            single ? "" : "md:grid-cols-2"
+          }`}
+        >
           {testimonials.map((t, i) => (
             <Reveal
               key={i}

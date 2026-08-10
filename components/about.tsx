@@ -16,7 +16,7 @@ export function About() {
     >
       <div className="mx-auto w-full max-w-[1400px]">
         <SectionHeader
-          index="07"
+          index="08"
           eyebrow="About"
           title="The person behind the work."
         />
