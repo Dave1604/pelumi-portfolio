@@ -56,7 +56,7 @@ export function Hero() {
           </span>
           <span className="eyebrow flex items-center gap-2">
             <span className="size-1 rounded-full bg-cream" />
-            Index 00 — Hero
+            Index 00 / Hero
           </span>
         </div>
 
@@ -67,11 +67,7 @@ export function Hero() {
               <span
                 key={i}
                 className={`hero-rise inline-block ${
-                  token.weight === "italic"
-                    ? "italic text-cream"
-                    : token.weight === "mute"
-                    ? "text-mute"
-                    : "text-ink"
+                  token.weight === "italic" ? "italic text-cream" : "text-ink"
                 }`}
                 style={{ animationDelay: `${(0.15 + i * 0.06).toFixed(3)}s` }}
               >

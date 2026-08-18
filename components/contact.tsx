@@ -22,7 +22,7 @@ export function Contact() {
 
   function send() {
     if (!value.trim()) return;
-    const subject = encodeURIComponent("A signal — let's talk");
+    const subject = encodeURIComponent("A signal. Let's talk");
     const body = encodeURIComponent(value.trim());
     window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
     setSent(true);
@@ -49,7 +49,7 @@ export function Contact() {
           index="09"
           eyebrow="Contact"
           title="Leave a signal."
-          lede="No form. No fields. Type a note. Hit ⌘ + ⏎. It opens in your email so you stay in control — and so it lands somewhere I'll actually read it."
+          lede="No form. No fields. Type a note. Hit ⌘ + ⏎. It opens in your email so you stay in control, and so it lands somewhere I'll actually read it."
         />
 
         <div className="mt-20 grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-10">
@@ -82,7 +82,7 @@ export function Contact() {
                 onChange={(e) => setValue(e.target.value)}
                 onKeyDown={onKey}
                 rows={3}
-                placeholder="Hi Pelumi — I'm working on..."
+                placeholder="Hi Pelumi, I'm working on..."
                 className="mt-6 block w-full resize-none border-0 bg-transparent font-serif text-3xl leading-snug tracking-[-0.015em] text-ink outline-none placeholder:text-mute/60 md:text-4xl lg:text-5xl"
               />
 
@@ -107,7 +107,7 @@ export function Contact() {
             </div>
 
             <p className="mt-5 max-w-[52ch] text-pretty text-sm leading-relaxed text-mute">
-              Or skip the niceties — write to{" "}
+              Or skip the niceties and write to{" "}
               <a
                 href={`mailto:${contact.email}`}
                 className="anchor-line text-soft hover:text-ink"

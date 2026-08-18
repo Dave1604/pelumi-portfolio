@@ -15,7 +15,7 @@ export function Stack() {
           index="06"
           eyebrow="Stack"
           title="A working set, not a list of logos."
-          lede="The tools I reach for first. Each one earned its place by surviving real projects — and they're held lightly enough that the next better tool will replace them."
+          lede="The tools I reach for first. Each one earned its place by surviving real projects, and they're held lightly enough that the next better tool will replace them."
         />
 
         <div className="mt-20 grid grid-cols-2 gap-x-10 gap-y-14 border-t border-rule pt-14 md:grid-cols-5 md:gap-x-14">

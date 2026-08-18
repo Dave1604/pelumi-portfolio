@@ -6,11 +6,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Pelumi Adewara — Product engineer",
+    default: "Pelumi Adewara · Product engineer",
     template: "%s · Pelumi Adewara",
   },
   description:
-    "Pelumi Adewara is a product engineer who designs, builds, and ships — from Figma to API to App Store. Five years of work across fintech, real estate, automotive, and museum projects.",
+    "Pelumi Adewara is a product engineer who designs, builds, and ships from Figma to API to App Store. Five years of work across fintech, real estate, automotive, and museum projects.",
   keywords: [
     "Pelumi Adewara",
     "product engineer",
@@ -24,16 +24,16 @@ export const metadata: Metadata = {
   creator: "Pelumi Adewara",
   openGraph: {
     type: "website",
-    title: "Pelumi Adewara — Product engineer",
+    title: "Pelumi Adewara · Product engineer",
     description:
-      "I design, build, and ship — from Figma to API to App Store. Selected work, philosophy, and experiments.",
+      "I design, build, and ship from Figma to API to App Store. Selected work, philosophy, and experiments.",
     siteName: "Pelumi Adewara",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pelumi Adewara — Product engineer",
+    title: "Pelumi Adewara · Product engineer",
     description:
-      "I design, build, and ship — from Figma to API to App Store.",
+      "I design, build, and ship from Figma to API to App Store.",
   },
   robots: { index: true, follow: true },
 };

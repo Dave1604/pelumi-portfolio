@@ -17,7 +17,7 @@ export function HowIBuild() {
           index="05"
           eyebrow="How I build"
           title="Engineering and design, held in one hand."
-          lede="The split between 'designers' and 'developers' is mostly a hiring convenience. I treat product as one practice — these are the principles I keep returning to."
+          lede="The split between 'designers' and 'developers' is mostly a hiring convenience. I treat product as one practice. These are the principles I keep returning to."
         />
 
         <ol className="mt-20 flex flex-col">

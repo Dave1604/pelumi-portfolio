@@ -16,7 +16,7 @@ export function Services() {
           index="03"
           eyebrow="Services"
           title="What you can hire me to build."
-          lede="Fixed-scope projects or ongoing work. Whether you arrive with a Figma file, a rough idea, or a broken site, I take it from where it is to shipped — design and code, both sides."
+          lede="Fixed-scope projects or ongoing work. Whether you arrive with a Figma file, a rough idea, or a broken site, I take it from where it is to shipped. Design and code, both sides."
         />
 
         <div className="mt-20 flex flex-col border-t border-rule">

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 // Route segment config
-export const alt = "Pelumi Adewara — Product Engineer";
+export const alt = "Pelumi Adewara · Product Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -92,7 +92,7 @@ export default async function OpengraphImage() {
               maxWidth: 900,
             }}
           >
-            I design and build web &amp; mobile products — from the first
+            I design and build web &amp; mobile products, from the first
             wireframe to the App Store.
           </div>
         </div>

@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Pelumi Adewara — Product Engineer",
+    name: "Pelumi Adewara · Product Engineer",
     short_name: "Pelumi",
     description:
-      "Product engineer who designs and builds web & mobile products — from the first wireframe to the App Store.",
+      "Product engineer who designs and builds web & mobile products, from the first wireframe to the App Store.",
     start_url: "/",
     display: "standalone",
     background_color: "#0a0a0b",

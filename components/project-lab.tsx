@@ -18,7 +18,7 @@ export function ProjectLab() {
           index="07"
           eyebrow="Project lab"
           title="A sketchbook. Studies, not shipments."
-          lede="Where I practise the parts of the craft I can't bill for — typography, motion, components, the small disciplines that keep taste from going stale."
+          lede="Where I practise the parts of the craft I can't bill for: typography, motion, components, the small disciplines that keep taste from going stale."
         />
 
         <div className="mt-20 grid grid-cols-1 gap-3 md:grid-cols-6 md:grid-rows-3">
