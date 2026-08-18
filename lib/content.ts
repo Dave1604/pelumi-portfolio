@@ -448,7 +448,10 @@ export const stack = [
 ];
 
 // ---------------------------------------------------------------------------
-// PROJECT LAB — studio sketchbook, framed honestly (not shipped products)
+// PROJECT LAB — dormant. Six titled cards with no artifact behind them
+// read as padding. The section is unhooked from the page until there is
+// one real note (a URL, a write-up, a demo). Then put it back as a single
+// study, not a wall of captions.
 // ---------------------------------------------------------------------------
 
 export const lab = [

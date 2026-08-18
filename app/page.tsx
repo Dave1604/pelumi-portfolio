@@ -6,7 +6,6 @@ import { Services } from "@/components/services";
 import { Testimonials } from "@/components/testimonials";
 import { HowIBuild } from "@/components/how-i-build";
 import { Stack } from "@/components/stack";
-import { ProjectLab } from "@/components/project-lab";
 import { About } from "@/components/about";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
@@ -26,7 +25,6 @@ export default function Page() {
         <Testimonials />
         <HowIBuild />
         <Stack />
-        <ProjectLab />
         <About />
         <Contact />
       </main>
