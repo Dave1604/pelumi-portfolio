@@ -221,6 +221,11 @@ it needs the original. Corrections required:
    Honours (Upper Division)**. Note the subject name changed too (Computing, not
    Computer Science) — confirm which is printed on the certificate and make all three
    surfaces agree (CV, site, LinkedIn).
+   **Site-side decision (2026-09-21):** the portfolio deliberately omits the
+   classification — Pelumi's call; a 2:1 line reads student-framed on a site pitching
+   shipped production work. Degree/school/date stay. Whether the CV keeps the
+   classification is a separate choice (CVs are screened differently); just don't
+   "fix" the site back into showing it.
 2. **Study Buddy stack** — CV says MongoDB. The project **migrated MongoDB → Supabase
    Postgres**. State the migration; it's a stronger detail than either database alone.
 3. **Motoka** — "several thousand car owners" → **~5,000**.
