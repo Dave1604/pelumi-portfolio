@@ -5,7 +5,7 @@
 > **CV**, read §1, §5, §6, §7 — they define the positioning, projects, and
 > stack the résumé must match word-for-word so portfolio and CV agree.
 >
-> **Last updated:** 2026-08-10
+> **Last updated:** 2026-09-21
 
 ---
 
@@ -96,6 +96,27 @@ reads as a settle rather than a fade.
 Best Practices **100**, SEO **100**; FCP 0.3 s, LCP 0.6 s, TBT 0 ms, CLS 0.
 ⚠️ Those are localhost numbers — **re-run against the live URL after deploying** before
 quoting any figure on the site itself. Do not publish a localhost score.
+
+### ✅ Statement interlude + case-study refresh (2026-09-21, deployed)
+
+- **New `components/statement.tsx`** — unnumbered interlude between Testimonials and
+  How I Build: one serif line ("Not tutorials. Not toy repos. Real products in
+  production, used by strangers.") whose characters brighten in sequence with scroll
+  and dim on the way back. Motion `useScroll` + per-char `useTransform`, no new deps.
+  Copy lives in `statement` in `content.ts`. Chars start at 0.14 opacity (LCP-safe),
+  full text in `aria-label`, reduced-motion renders plain text. Scroll progress tracks
+  the **paragraph**, not the section — section padding would burn the sweep off-screen.
+- **Motoka** — role includes Frontend; copy credits the public site at motoka.ng and
+  the homepage plate-renewal flow; new `motoka.jpg` (old png removed).
+- **QwamPay** — new hero screenshot of the redesigned qwampay.com (`qwampay.jpg`,
+  2880×1500). Captured headless via CDP with the hero's 5-language rotation pinned to
+  English, floating chat bubbles hidden, bottom dead space cropped. Alt text names the
+  language switcher (English, Pidgin, Yorùbá, Igbo, Hausa).
+- **CLAUDE.md** now committed to the repo (deploy workflow, content rules, state).
+- Reusable **motion skills** saved at `~/.claude/skills/`: `scroll-text-reveal`,
+  `site-preloader`, `section-entrances` — GSAP/Lenis/Motion techniques
+  reverse-engineered from abdvl.xyz, pickt404, rivetsync. Shareable reference artifact:
+  https://claude.ai/code/artifact/07a306af-bf2a-44a8-a155-2e1aa55a04e8
 
 ---
 
