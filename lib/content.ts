@@ -152,9 +152,6 @@ export const education = {
   degree: "BSc (Hons) Computing",
   school: "Arden University",
   period: "Awarded June 2026",
-  // The 2:1 stays because UK and EU employers still screen on classification.
-  // It's one line and it's a positive; drop it if it ever starts feeling junior.
-  classification: "Second Class Honours, Upper Division",
   note: "Final-year dissertation: the Study Buddy e-learning platform. Coursework in data mining, blockchain, cybersecurity, and managing innovation.",
 } as const;
 

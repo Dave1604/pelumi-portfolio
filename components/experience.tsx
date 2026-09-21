@@ -103,9 +103,6 @@ export function Experience() {
                 {education.degree}
               </h3>
               <p className="mt-2 text-sm text-ink">{education.school}</p>
-              <p className="mt-1.5 text-sm leading-snug text-mute">
-                {education.classification}
-              </p>
             </div>
             <div className="md:col-span-8">
               <p className="max-w-[62ch] text-pretty text-[15px] leading-relaxed text-soft md:text-base">
