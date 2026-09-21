@@ -207,8 +207,8 @@ export const work: CaseStudy[] = [
       { label: "Visit qwamtechnologies.com", href: "https://www.qwamtechnologies.com" },
     ],
     image: {
-      src: "/work/qwampay.png",
-      alt: "QwamPay homepage: money, bills & contribution, all inside WhatsApp",
+      src: "/work/qwampay.jpg",
+      alt: "QwamPay homepage: money, bills and airtime, all inside WhatsApp, with the language switcher covering English, Pidgin, Yoruba, Igbo and Hausa",
     },
   },
   {
@@ -217,25 +217,25 @@ export const work: CaseStudy[] = [
     kind: "Automotive",
     name: "Motoka: vehicle platform backend",
     year: "2026",
-    role: ["Backend", "API design", "Database"],
+    role: ["Backend", "API design", "Frontend", "Database"],
     oneLiner:
-      "The API behind a vehicle-documents platform: auth, KYC, vehicle records, and a notification engine that never lets a paper quietly expire.",
+      "A vehicle-documents platform built from the API up: auth, KYC, vehicle records, and a notification engine that never lets a paper quietly expire.",
     problem:
       "Vehicle paperwork fails silently: nothing tells you a document is about to lapse until a checkpoint does. Motoka needed a backend that treats expiry dates as first-class data, plus the trust infrastructure a product holding people's documents can't skip: real auth, two-factor, KYC.",
     process:
       "Designed the API around the vehicle record as the core entity, with documents, uploads, and reminders hanging off it. The notification schedule came from asking when a reminder is actually useful: early enough to act on, repeated enough to survive being ignored, and persistent past the deadline.",
     solution:
-      "Node.js/Express API on Supabase: email/password and magic-link auth, 2FA via authenticator app or email OTP, profile and KYC management, vehicle registration, payment workflows, guest renewals, public REST endpoints, file uploads to Supabase Storage, rate limiting and security headers. Expiry notifications fire automatically on a nine-point schedule, from 30 days before to a week after. I also redesigned the admin dashboard end to end.",
+      "Node.js/Express API on Supabase: email/password and magic-link auth, 2FA via authenticator app or email OTP, profile and KYC management, vehicle registration, payment workflows, guest renewals, public REST endpoints, file uploads to Supabase Storage, rate limiting and security headers. Expiry notifications fire automatically on a nine-point schedule, from 30 days before to a week after. I also redesigned the admin dashboard end to end, and built the public site now live at motoka.ng, including the plate-number renewal flow on the homepage, to a supplied design.",
     outcome:
-      "The backend runs the product for around 5,000 registered car owners. Every account, vehicle record, payment, and reminder goes through it, and all nine reminder stages fire without a human in the loop.",
+      "Motoka is live at motoka.ng, and the backend runs it for around 5,000 registered car owners. Every account, vehicle record, payment, and reminder goes through it, and all nine reminder stages fire without a human in the loop.",
     stack: ["Node.js", "Express", "Supabase", "PostgreSQL", "REST"],
     links: [
       { label: "Visit motoka.ng", href: "https://motoka.ng" },
       { label: "Backend on GitHub", href: "https://github.com/Dave1604/motoka-backend" },
     ],
     image: {
-      src: "/work/motoka.png",
-      alt: "Motoka homepage: effortless car ownership in Nigeria, with plate-number license renewal",
+      src: "/work/motoka.jpg",
+      alt: "Motoka homepage: your car's paperwork, finally under control, with a plate-number renewal field over a spread of Nigerian vehicle documents",
     },
   },
   {
@@ -381,6 +381,17 @@ export const resume = {
   available: true,
   href: "/pelumi-adewara-cv.pdf",
   label: "Résumé",
+} as const;
+
+// ---------------------------------------------------------------------------
+// STATEMENT — scroll-lit interlude between Testimonials and How I build.
+// One line, one job: the differentiator. Keep it short; every character is
+// individually animated, so a paragraph here would read as noise.
+// ---------------------------------------------------------------------------
+
+export const statement = {
+  eyebrow: "The point",
+  text: "Not tutorials. Not toy repos. Real products in production, used by strangers.",
 } as const;
 
 // ---------------------------------------------------------------------------
